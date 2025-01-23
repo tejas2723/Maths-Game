@@ -1,0 +1,332 @@
+/* Set the background of the entire HTML document to a radial gradient */
+html {
+    background: radial-gradient(circle, #fff, #ccc);
+}
+
+/* Container for the game interface */
+#container {
+    height: 450px; /* Fixed height for the container */
+    width: 550px; /* Fixed width for the container */
+    background-color: #9dd2ea; /* Light blue background color */
+    margin: 100px auto; /* Center the container with top margin */
+    padding: 10px; /* Padding inside the container */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 4px 4px 0px 0px #009de4; /* Shadow effect for depth */
+    position: relative; /* Positioning context for absolute children */
+}
+
+/* Score display area */
+#score {
+    background-color: #F1FF92; /* Light yellow background */
+    color: #888e5f; /* Darker text color */
+    padding: 10px; /* Padding around the score */
+    position: absolute; /* Positioned relative to the container */
+    left: 480px; /* Positioned to the right side of the container */
+    box-shadow: 0px 4px #9da853; /* Shadow effect for depth */
+}
+
+/* Correct answer notification */
+#correct {
+    position: absolute; /* Positioned relative to the container */
+    left: 250px; /* Centered horizontally */
+    background-color: #42e252; /* Green background for correct answer */
+    color: white; /* White text color */
+    padding: 11px; /* Padding around the notification */
+    border-radius: 5px; /* Rounded corners */
+    display: none; /* Hidden by default */
+}
+
+/* Wrong answer notification */
+#wrong {
+    position: absolute; /* Positioned relative to the container */
+    left: 250px; /* Centered horizontally */
+    background-color: #de401a; /* Red background for wrong answer */
+    color: white; /* White text color */
+    padding: 11px; /* Padding around the notification */
+    border-radius: 5px; /* Rounded corners */
+    display: none; /* Hidden by default */
+}
+
+/* Question display area */
+#question {
+    width: 450px; /* Fixed width for the question area */
+    height: 150px; /* Fixed height for the question area */
+    margin: 50px auto 10px auto; /* Centered with top and bottom margins */
+    background-color: #9DA0EA; /* Light purple background */
+    box-shadow: 0px 4px #535aa8; /* Shadow effect for depth */
+    font-size: 100px; /* Large font size for visibility */
+    text-align: center; /* Center text alignment */
+    font-family: cursive, sans-serif; /* Font style */
+    top: 10px; /* Positioning from the top */
+}
+
+/* Instruction display area */
+#instruction {
+    width: 450px; /* Fixed width for the instruction area */
+    height: 50px; /* Fixed height for the instruction area */
+    background-color: #B481D9; /* Light purple background */
+    margin: 10px auto; /* Centered with vertical margins */
+    text-align: center; /* Center text alignment */
+    line-height: 45px; /* Center text vertically */
+    box-shadow: 0px 4px #8153a8; /* Shadow effect for depth */
+}
+
+/* Choices display area */
+#choices {
+    width: 450px; /* Fixed width for the choices area */
+    height: 120px; /* Fixed height for the choices area */
+    margin: 5px auto; /* Centered with vertical margins */
+}
+
+/* Individual choice box */
+.box {
+    width: 95px; /* Fixed width for each choice box */
+    height: 95px; /* Fixed height for each choice box */
+    background-color: white; /* White background for choice boxes */
+    float: left; /* Align boxes to the left */
+    margin-right: 23px; /* Right margin for spacing */
+    border-radius: 3px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 0px 4px rgba(0, 0, 0, 0.2); /* Shadow effect for depth */
+    text-align: center; /* Center text alignment */
+    font-size: 20px; /* Font size for text inside boxes */
+    line-height: 80px; /* Center text vertically */
+    position: relative; /* Positioning context for active state */
+    transition: all 0.2s; /* Smooth transition for hover effects */
+    margin-bottom: 5px;
+}
+/* Styles for the choice boxes when hovered over */
+.box:hover, #startreset:hover {
+    background-color: #9c89f6; /* Change background color on hover */
+    color: white; /* Change text color to white on hover */
+    box-shadow: 0px 4px #6b54d3; /* Add shadow effect on hover for depth */
+}
+
+/* Styles for the choice boxes and start/reset button when active (clicked) */
+.box:active, #startreset:active {
+    box-shadow: 0px 0px #6b54d3; /* Remove shadow effect when active */
+    top: 4px; /* Move the element down slightly to simulate a press effect */
+}
+
+/* Specific style for the fourth box to remove right margin */
+#box4 {
+    margin-right: 0px; /* No right margin for the last box */
+}
+
+/* Styles for the start/reset button */
+#startreset {
+    width: 90px; /* Fixed width for the button */
+    padding: 10px; /* Padding inside the button */
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+    margin: 0px auto; /* Center the button horizontally */
+    border-radius: 3px; /* Rounded corners for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 0px 4px rgba(0, 0, 0, 0.2); /* Shadow effect for depth */
+    text-align: center; /* Center text alignment */
+    position: relative; /* Positioning context for active state */
+    transition: all 0.2s; /* Smooth transition for hover and active effects */
+}
+
+/* Timer display area */
+#timeremaining {
+    width: 162px; /* Fixed width for the timer display */
+    padding: 10px; /* Padding inside the timer display */
+    position: absolute; /* Positioned relative to the container */
+    top: 407px; /* Position from the top of the container */
+    left: 380px; /* Position from the left of the container */
+    background-color: rgba(181, 235, 36, 0.8); /* Semi-transparent green background */
+    border-radius: 3px; /* Rounded corners for the timer display */
+    box-shadow: 0px 4px rgba(0, 0, 0, 0.2); /* Shadow effect for depth */
+    display: none; /* Hidden by default */
+}
+
+/* Game over display area */
+#gameover {
+    height: 200px; /* Fixed height for the game over display */
+    width: 500px; /* Fixed width for the game over display */
+    background: linear-gradient(#f3ca6b, #f3706c); /* Gradient background from light orange to red */
+    color: white; /* White text color for visibility */
+    font-size: 2.5em; /* Large font size for emphasis */
+    text-align: center; /* Center text alignment */
+    text-transform: uppercase; /* Uppercase text for emphasis */
+    position: absolute; /* Positioned relative to the container */
+    top: 100px; /* Position from the top of the container */
+    left: 35px; /* Position from the left of the container */
+    z-index: 2; /* Higher stacking order to appear above other elements */
+    display: none; /* Hidden by default */
+}
+
+
+
+/* ... existing code ... */
+
+/* Specific adjustments for tall screens (like 700x1612) */
+@media screen and (min-height: 1000px) {
+    #container {
+        width: min(95%, 700px);
+        margin: 50px auto;
+        padding: 30px;
+        min-height: 800px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+
+    #score {
+        position: absolute;
+        font-size: 24px;
+        padding: 15px 25px;
+        right: 30px;
+        top: 30px;
+        border-radius: 5px;
+    }
+
+    #question {
+        max-width: 600px;
+        min-height: 200px;
+        margin: 100px auto 40px auto;
+        font-size: clamp(60px, 12vw, 120px);
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    #instruction {
+        max-width: 600px;
+        min-height: 70px;
+        font-size: 24px;
+        line-height: 70px;
+        margin: 30px auto;
+        border-radius: 8px;
+    }
+
+    #choices {
+        width: 100%;
+        max-width: 600px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        margin: 40px auto;
+    }
+
+    .box {
+        min-height: 120px;
+        font-size: 28px;
+        border-radius: 8px;
+    }
+
+    #startreset {
+        width: 250px;
+        padding: 15px;
+        font-size: 24px;
+        margin: 40px auto;
+        border-radius: 8px;
+    }
+
+    /* Fixed time remaining box */
+    #timeremaining {
+        position: absolute;
+        width: auto;
+        min-width: 140px;
+        padding: 15px 25px;
+        font-size: 20px;
+        bottom: 30px;
+        right: 30px;
+        border-radius: 8px;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    #correct, #wrong {
+        padding: 15px 30px;
+        font-size: 24px;
+        border-radius: 8px;
+        top: 50%;
+    }
+
+    #gameover {
+        width: 80%;
+        max-width: 600px;
+        padding: 40px;
+        font-size: 36px;
+        border-radius: 15px;
+    }
+}
+
+/* Additional adjustment for extra tall screens */
+@media screen and (min-height: 1400px) {
+    #container {
+        margin: 100px auto;
+        min-height: 1000px;
+    }
+
+    #question {
+        margin: 120px auto 60px auto;
+    }
+
+    #choices {
+        margin: 60px auto;
+    }
+
+    .box {
+        min-height: 150px;
+        font-size: 32px;
+    }
+}
+
+/* Ensure proper spacing on narrower screens */
+@media screen and (max-width: 768px) and (min-height: 1000px) {
+    #container {
+        width: 95%;
+        margin: 30px auto;
+        padding: 20px;
+    }
+
+    #choices {
+        gap: 15px;
+    }
+
+    .box {
+        min-height: 100px;
+        font-size: 24px;
+    }
+
+    #score {
+        font-size: 20px;
+        padding: 12px 20px;
+    }
+
+    #timeremaining {
+        padding: 12px 20px;
+        font-size: 18px;
+    }
+}
+
+/* Maintain readability on very narrow screens */
+@media screen and (max-width: 380px) {
+    #container {
+        padding: 15px;
+    }
+
+    #question {
+        font-size: clamp(40px, 8vw, 80px);
+        min-height: 150px;
+    }
+
+    #instruction {
+        font-size: 18px;
+        min-height: 50px;
+        line-height: 50px;
+    }
+
+    .box {
+        min-height: 80px;
+        font-size: 20px;
+    }
+
+    #timeremaining {
+        min-width: 120px;
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+}

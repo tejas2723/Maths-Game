@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Maths Game</title> <!-- Title of the webpage -->
+    <link rel="stylesheet" href="style.css"> <!-- Link to the external CSS stylesheet for styling -->
+</head>
+<body>
+    <div id="container"> <!-- Main container for the game interface -->
+        <div id="score"> <!-- Score display area -->
+            Score: <span id="scorevalue">0</span> <!-- Current score value -->
+        </div>
+        <div id="correct"> <!-- Notification for correct answers -->
+            Correct
+        </div>
+        <div id="wrong"> <!-- Notification for wrong answers -->
+            Try Again
+        </div>
+
+        <div id="question"></div> <!-- Area to display the current question -->
+        <div id="instruction">Click on the correct answer</div> <!-- Instruction for the player -->
+        <div id="choices"> <!-- Container for answer choices -->
+            <div id="box1" class="box"></div> <!-- First answer choice box -->
+            <div id="box2" class="box"></div> <!-- Second answer choice box -->
+            <div id="box3" class="box"></div> <!-- Third answer choice box -->
+            <div id="box4" class="box"></div> <!-- Fourth answer choice box -->
+        </div>
+        <div id="startreset">Start Game</div> <!-- Button to start or reset the game -->
+        <div id="timeremaining">Time Remaining: <span id="timeremainingvalue">60</span> sec</div> <!-- Timer display -->
+        <div id="gameover"></div> <!-- Area to display game over message -->
+    </div>
+    <script src="script.js"></script> <!-- Link to the external JavaScript file for game logic -->
+</body>
+</html>
